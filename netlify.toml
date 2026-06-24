@@ -1,0 +1,16 @@
+[build]
+  command = "npx vite build"
+  publish = "dist/public"
+
+# SPA redirect — ensures React Router client-side routes work on Netlify
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API routes should NOT be caught by SPA redirect (if backend is hosted separately)
+# If you deploy the API elsewhere, update this with your API base URL
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://your-api-server.com/api/:splat"
+#   status = 200
